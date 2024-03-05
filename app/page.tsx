@@ -21,7 +21,7 @@ export default async function Index() {
 
   return (
     <div className="container mx-auto pt-10">
-      <h1 className="text-4xl font-bold">THIS IS A PROTECTED PAGE</h1>
+      <h1 className="text-4xl font-bold">THIS IS A HOME PAGE</h1>
       {isSupabaseConnected && <AuthButton />}
     </div>
   );
