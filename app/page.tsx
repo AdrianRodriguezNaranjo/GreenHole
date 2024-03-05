@@ -4,6 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 
 
 export default async function Index() {
+  const supabase = createClient();
   const canInitSupabaseClient = () => {
     // This function is just for the interactive tutorial.
     // Feel free to remove it once you have Supabase connected.
@@ -16,6 +17,12 @@ export default async function Index() {
   };
 
   const isSupabaseConnected = canInitSupabaseClient();
+
+
+  console.log("isSupabaseConnected", isSupabaseConnected);
+ 
+  
+  
 
   return (
     <div className="container mx-auto pt-10">
