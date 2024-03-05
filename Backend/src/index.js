@@ -3,18 +3,19 @@ require('dotenv').config();
 // const jwt = require('jsonwebtoken');
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const bodyParser = require('body-parser');
- 
-var path = require('path');
-
 const app = express();
+const port = process.env.PORT || 4000;
 
+
+
+// Use the public folder to serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-const port = process.env.PORT || 4000;
- 
-var corsOptions = {
-  origin: "http://localhost:3000"
+// CORS configuration
+const corsOptions = {
+  origin: process.env.CORS_ORIGIN
 };
 // enable CORS
 app.use(cors(corsOptions));
@@ -35,8 +36,6 @@ app.use(bodyParser.json());
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and re-sync db.");
 // });
-
-
 
 
 
