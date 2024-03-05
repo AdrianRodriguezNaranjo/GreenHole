@@ -8,5 +8,8 @@
   },
   "scripts": {
     "dev": "node --watch ."
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
   }
 }
