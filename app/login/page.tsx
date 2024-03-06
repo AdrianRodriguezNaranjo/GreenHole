@@ -2,7 +2,7 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import { SubmitButton } from "./submit-button";
+import { SubmitButton } from "../../components/submit-button";
 
 export default function Login({ searchParams,}: { searchParams: { message: string }; }) {
 
@@ -60,7 +60,7 @@ export default function Login({ searchParams,}: { searchParams: { message: strin
     const supabase = createClient();
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: "/reset-password",
+      redirectTo: "http://localhost:3000/reset-password",
     });
 
     if (error) {
