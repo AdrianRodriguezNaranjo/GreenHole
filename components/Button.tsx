@@ -19,6 +19,7 @@ export default function Button({ variant, children, onClick }: ButtonProps) {
   return (
     <button
       className={`py-2 px-4 rounded-md no-underline ${color} transition-colors duration-200 ease-in-out`}
+      onClick={onClick}
     >
       {children}
     </button>
