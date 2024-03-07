@@ -4,7 +4,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant: "primary" | "danger" | "success" | "warning";
   children: React.ReactNode;
 }
-export default function Button({ variant, children, onClick }: ButtonProps) {
+export default function Button({ variant, children, onClick, style}: ButtonProps) {
   let color;
 
   switch (variant) {
@@ -20,6 +20,7 @@ export default function Button({ variant, children, onClick }: ButtonProps) {
     <button
       className={`py-2 px-4 rounded-md no-underline ${color} transition-colors duration-200 ease-in-out`}
       onClick={onClick}
+      style={style}
     >
       {children}
     </button>
