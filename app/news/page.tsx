@@ -1,3 +1,8 @@
+"use client"
+
+import Button from "@/components/Button";
+import { items } from "@/utils/items";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { FaBars } from "react-icons/fa";
 import { SlOptionsVertical } from "react-icons/sl";
@@ -9,40 +14,11 @@ const icons = {
     tomra: "https://i.ibb.co/DYBQM6r/image.png",
 }
 
-interface NewsItems {
-  title: string;
-  source: "BBC News" | "Reuters" | "The NYT" | "TOMRA";
-  image: string;
-  datetime: string;
-}
+
 
 export default function page() {
-  const items: NewsItems[] = [
-    {
-      title: "Global Summit on Climate Change: Historic Agreement Reached",
-      source: "BBC News",
-      image: "https://i.ibb.co/zVjKp7c/image.png",
-      datetime: "Jun 9, 2023",
-    },
-    {
-      title: "Climate Change Impact on Agriculture: Farmers Seek Solutions",
-      source: "Reuters",
-      image: "https://i.ibb.co/X3Nnx0P/image.png",
-      datetime: "Jun 8, 2023",
-    },
-    {
-      title: "Rising Sea Levels Threaten Coastal Cities' Economies",
-      source: "The NYT",
-      image: "https://i.ibb.co/3mg1x04/image.png",
-      datetime: "Jun 6, 2023",
-    },
-    {
-        title: "What’s AI doing for you? ",
-        source: "TOMRA",
-        image: "https://i.ibb.co/KWvYPPT/image.png",
-        datetime: "Sep 27, 2023",
-    }
-  ];
+  const router = useRouter()
+ 
 
   return (
     <div className="max-w-md mx-auto">
@@ -58,13 +34,14 @@ export default function page() {
         <h1 className="px-4 text-2xl font-bold text-[#484848]">News</h1>
 
         <div className="space-y-6 p-4">
-          {items.map((item, index) => (
-            <div className="space-y-2" key={index}>
+          {items.map((item) => (
+            <div className="space-y-2" key={item.id}>
               <img
                 alt={item.title}
                 className="aspect-square object-cover rounded-lg hover:shadow-lg transition-shadow cursor-pointer"
                 height="200"
                 src={item.image}
+                onClick={() => router.push(`/news/${item.id}`)}
                 width="200"
               />
               <h2 className="text-lg font-semibold">{item.title}</h2>
@@ -81,6 +58,10 @@ export default function page() {
             </div>
           ))}
         </div>
+
+        <Button variant="primary" className="w-full">
+            Load More
+        </Button>
       </main>
     </div>
   );
