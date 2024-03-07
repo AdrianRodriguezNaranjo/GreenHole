@@ -13,7 +13,7 @@ export default function Home() {
   );
 
   useEffect(() => {
-    console.log('Embla Carousel Reference:', emblaRef);
+    console.log('Reference:', emblaRef);
   }, [emblaRef]);
 
   return (
