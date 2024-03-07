@@ -8,8 +8,8 @@ import './style.css';
 
 export default function Home() {
   const [emblaRef] = useEmblaCarousel(
-    { loop: false }, // Opciones del carousel
-    [Autoplay()]    // Activación del autoplay
+    { loop: false },
+    [Autoplay()]
   );
 
   useEffect(() => {
