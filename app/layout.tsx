@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins_sans.className}>
       <body className="bg-background text-foreground">
-        <main className="min-h-screen flex flex-col items-center">
+        <main>
           <Toaster visibleToasts={1} />
           {children}
         </main>
