@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "imageUrl": "https://via.placeholder.com/300",
+      "title": "Slide 1",
+      "body": "Description for Slide 1"
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://via.placeholder.com/300",
+      "title": "Slide 2",
+      "body": "Description for Slide 2"
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://via.placeholder.com/300",
+      "title": "Slide 3",
+      "body": "Description for Slide 3"
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://via.placeholder.com/300",
+      "title": "Slide 4",
+      "body": "Description for Slide 4"
+    }
+]

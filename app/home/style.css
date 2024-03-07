@@ -1,0 +1,30 @@
+.embla {
+    overflow: hidden;    
+  }
+  
+  .embla__container {
+    display: flex;    
+  }
+
+  .embla__container__inner{
+    display: flex;    
+    flex-direction: row;    
+  }
+  
+  .embla__slide {    
+    margin: 10%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 0 0 auto;
+    min-width: 15%;    
+    margin-right: 20px;    
+  }
+  
+  .embla__slide>img{
+    border-radius: 10%;
+  }
+
+  .embla__slide:last-child {
+    margin-right: 10%;
+  }
+  

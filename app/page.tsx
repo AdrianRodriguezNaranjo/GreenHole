@@ -4,6 +4,10 @@ import { createClient } from "@/utils/supabase/server";
 import ConnectSupabaseSteps from "@/components/tutorial/ConnectSupabaseSteps";
 import SignUpUserSteps from "@/components/tutorial/SignUpUserSteps";
 import Header from "@/components/Header";
+<<<<<<< Updated upstream
+=======
+import 'embla-carousel-react/style.css';
+>>>>>>> Stashed changes
 
 export default async function Index() {
   const canInitSupabaseClient = () => {
