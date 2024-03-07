@@ -1,13 +1,10 @@
 "use client";
 
-import Button from "@/components/Button";
+import { useState } from "react";
 import { items } from "@/utils/items";
 import { useRouter } from "next/navigation";
-import React from "react";
 import { FaBars } from "react-icons/fa";
 import { SlOptionsVertical } from "react-icons/sl";
-import { AiOutlineReload } from "react-icons/ai";
-import { toast } from "sonner";
 
 const icons = {
   bbc: "https://i.ibb.co/kGbsBK2/image.png",
@@ -17,7 +14,7 @@ const icons = {
 };
 
 export default function page() {
-  const [newsItems, setNewsItems] = React.useState(items);
+  const [newsItems, setNewsItems] = useState(items);
   const router = useRouter();
 
   return (
