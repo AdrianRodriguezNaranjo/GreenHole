@@ -17,18 +17,20 @@ export default function Home() {
   }, [emblaRef]);
 
   return (
+    <>
     <div className="embla">
       <div className="embla__container" ref={emblaRef}>
         <div className="embla__container__inner">
           {carouselData.map((slide) => (
             <div key={slide.id} className="embla__slide">
               <img src={slide.imageUrl} alt={`Slide ${slide.id}`} />
-              <h3>{slide.title}</h3>
-              <p>{slide.body}</p>
+              <p className="slide-text">{slide.body}</p>
             </div>
           ))}
         </div>
       </div>
     </div>
+          
+    </>
   );
 }

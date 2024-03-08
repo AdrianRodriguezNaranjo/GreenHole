@@ -1,30 +1,59 @@
+.__className_ac79ff{
+  font-family: "Poppins" ;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  min-height: 100% 
+}
+
 .embla {
-    overflow: hidden;    
-  }
-  
-  .embla__container {
-    display: flex;    
-  }
+  overflow: hidden;
+  height: 100vh;
+}
 
-  .embla__container__inner{
-    display: flex;    
-    flex-direction: row;    
-  }
-  
-  .embla__slide {    
-    margin: 10%;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex: 0 0 auto;
-    min-width: 15%;    
-    margin-right: 20px;    
-  }
-  
-  .embla__slide>img{
-    border-radius: 10%;
-  }
+.embla__container {
+  display: flex;
+}
 
-  .embla__slide:last-child {
-    margin-right: 10%;
-  }
-  
+.embla__container__inner {
+  display: flex;
+  flex-direction: row;
+}
+
+.embla__slide {
+  margin: 10%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+  min-width: 15%;
+  margin-right: 20px;
+  width: 80%;
+  height: 95%;
+  text-align: center;
+}
+
+.embla__slide>img {
+  margin-left: 6px;
+  border-radius: 10%;
+  height: 90%;
+}
+
+
+.embla__slide:last-child {
+  margin-right: 10%;
+}
+
+.slide-text{
+  font-weight: bold;
+  font-size: larger;
+}
