@@ -2,6 +2,7 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
+
 import { SubmitButton } from "../../components/submit-button";
 
 export default function Login({ searchParams,}: { searchParams: { message: string }; }) {
@@ -21,7 +22,6 @@ export default function Login({ searchParams,}: { searchParams: { message: strin
     if (error) {
       return redirect("/login?message=Could not authenticate user");
     }
-
     return redirect("/account");
   };
 
@@ -31,8 +31,6 @@ export default function Login({ searchParams,}: { searchParams: { message: strin
     const origin = headers().get("origin");
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
-
-
 
     const supabase = createClient();
 
@@ -46,7 +44,7 @@ export default function Login({ searchParams,}: { searchParams: { message: strin
 
     if (error) {
       console.log(error);
-      
+
       return redirect("/login?message=Could not authenticate user");
     }
 
@@ -111,7 +109,9 @@ export default function Login({ searchParams,}: { searchParams: { message: strin
           type="password"
           name="password"
           placeholder="••••••••"
+
           minLength={6}
+
           required
         />
         <SubmitButton
@@ -128,6 +128,7 @@ export default function Login({ searchParams,}: { searchParams: { message: strin
         >
           Sign Up
         </SubmitButton>
+
         <SubmitButton
           formAction={forgotPassword}
           className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
@@ -135,6 +136,7 @@ export default function Login({ searchParams,}: { searchParams: { message: strin
         >
           Forgot password?
         </SubmitButton>
+
         {searchParams?.message && (
           <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
             {searchParams.message}

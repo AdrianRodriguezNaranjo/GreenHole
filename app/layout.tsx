@@ -12,7 +12,6 @@ export const metadata = {
 
 const poppins_sans = Poppins({ subsets: ["latin"], weight: "400" });
 
-
 export default function RootLayout({
   children,
 }: {
