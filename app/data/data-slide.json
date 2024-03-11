@@ -1,0 +1,22 @@
+[
+    {
+      "id": 1,
+      "imageUrl": "/images/Image1.png",
+      "body": "Aluminum can be infinitely recycled, though 7 million tons yearly are still not."
+    },
+    { 
+      "id": 2,
+      "imageUrl": "/images/Image2.png",
+      "body": "Only 17.4% of e-waste discarded in 2019 was recycled."
+    },
+    {
+      "id": 3,
+      "imageUrl": "/images/Image3.png",
+      "body": " It is cheaper to make glass products out of recycled materials."
+    },
+    {
+      "id": 4,
+      "imageUrl": "/images/Image4.png",
+      "body": "More than 5 trillion pieces of plastic are already floating in our oceans."
+    }
+]

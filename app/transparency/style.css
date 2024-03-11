@@ -1,0 +1,77 @@
+.__className_ac79ff{
+  align-items: center;
+  text-align: center;
+  font-family: "Poppins";
+}
+
+.transparency-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.Percentage-display{
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.Percentage-display .ant-progress-text{
+  color: white !important;  
+}
+
+.transparency-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Facilities-container{
+  font-family: 'Source Sans Pro';
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.component-facility{
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.Facilities{
+  border: grey 1px solid;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.GreenPoint1 {
+  text-align: start;
+  color: white;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: #335C6A;
+  width: 327px; 
+  height: 340px;
+  top: 172px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px;
+  gap: 16px;
+}
+.GreenPoint2 {
+  text-align: start;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: #FFB419;
+  width: 327px;
+  height: 340px;
+  top: 172px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px;
+  gap: 16px;
+}
