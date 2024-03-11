@@ -3,6 +3,7 @@
 import React from 'react';
 import './style.css';
 import { Badge, Progress, ProgressProps, Statistic } from 'antd';
+import Footer from '../../components/footer/index';
 
 const twoColors: ProgressProps['strokeColor'] = {
   '0%': '#FFC53D',
@@ -50,13 +51,16 @@ export default function Transparency() {
           <div className='Facilities'>
             <h1>Transparency of recycling facilities</h1>
             <div className='Facilities-container'>
-              <div className='flex component-facility'><p>Green Point 1</p><Statistic style={{marginLeft:'140px'}} value={56} suffix="%" /></div>
-              <div className='flex component-facility'><p>Green Point 2</p><Statistic style={{marginLeft:'140px'}} value={40} suffix="%" /></div>
-              <div className='flex component-facility'><p>Green Point 3</p><Statistic style={{marginLeft:'140px'}} value={10} suffix="%" /></div>
+              <div className='flex component-facility'><p>Green Point 1</p><p style={{marginLeft:'140px', color:'grey'}}>56%</p></div>
+              <div className='flex component-facility'><p>Green Point 2</p><p style={{marginLeft:'140px', color:'grey'}}>40%</p></div>
+              <div className='flex component-facility'><p>Green Point 3</p><p style={{marginLeft:'140px', color:'grey'}}>10%</p></div>
             </div>
           </div>
         </div>
       </div>
+        <div>
+          <Footer/>
+        </div>
     </>
   );
 }
