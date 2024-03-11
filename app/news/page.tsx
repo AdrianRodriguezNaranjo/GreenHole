@@ -32,9 +32,7 @@ export default function page() {
             const searchedItems = items.filter((item) => {
               return regex.test(item.title);
             });
-            setNewsItems(searchedItems);
-
-  
+            setNewsItems(searchedItems);  
           }}
         />
         <button className="text-gray-600">
@@ -57,11 +55,7 @@ export default function page() {
                 width="200"
               />
               <div>
-
-
                 <h2 className="text-lg font-semibold">{item.title}</h2>
-
-
                 <div className="flex items-center space-x-1 text-sm text-gray-500  bottom-0 overflow-hidden">
                   {item.source === "BBC News" && (
                     <img src={icons.bbc} alt="BBC News" className="w-4 h-4" />
