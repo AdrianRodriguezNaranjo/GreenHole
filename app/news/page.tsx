@@ -5,6 +5,7 @@ import { items } from "@/utils/items";
 import { useRouter } from "next/navigation";
 import { FaBars } from "react-icons/fa";
 import { SlOptionsVertical } from "react-icons/sl";
+import Menu from "@/components/menu/menu";
 
 const icons = {
   bbc: "https://i.ibb.co/kGbsBK2/image.png",
@@ -20,7 +21,7 @@ export default function page() {
   return (
     <div className="max-w-md mx-auto">
       <div className="flex items-center justify-between p-4">
-        <FaBars className="text-gray-600 cursor-pointer" size={22} />
+        <img src="/icons/logo.png" alt="Logo" className="h-10 w-10" />
         <input
           className="flex-1 mx-4 outline-none bg-white border border-gray-200 rounded-full p-2"
           type="search"
@@ -32,12 +33,10 @@ export default function page() {
             const searchedItems = items.filter((item) => {
               return regex.test(item.title);
             });
-            setNewsItems(searchedItems);  
+            setNewsItems(searchedItems);
           }}
         />
-        <button className="text-gray-600">
-          <SlOptionsVertical size={22} />
-        </button>
+        <Menu />
       </div>
 
       <main className="container mx-auto">
@@ -85,8 +84,8 @@ export default function page() {
           {newsItems.length < 1 && (
             <div className="flex justify-center p-4">
               <p>No items found</p>
-              </div>
-            )}
+            </div>
+          )}
         </div>
       </main>
     </div>

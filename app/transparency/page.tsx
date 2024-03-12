@@ -4,6 +4,7 @@ import React from 'react';
 import './style.css';
 import { Badge, Progress, ProgressProps, Statistic } from 'antd';
 import Footer from '../../components/footer/index';
+import Header from '@/components/Header';
 
 const twoColors: ProgressProps['strokeColor'] = {
   '0%': '#FFC53D',
@@ -21,7 +22,7 @@ export default function Transparency() {
   return (
     <>
       <div className="transparency-body">
-        <div /*for header*/></div>
+        <Header/>
         <div className='transparency-content'>
           <h1>Transparency of recycling facilities</h1>
           <div className='GreenPoint1'>
