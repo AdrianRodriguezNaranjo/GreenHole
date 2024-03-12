@@ -36,14 +36,18 @@
   align-items: center;
   justify-content: center;
 }
-.component-facility{
+.component-facility{  
+  color: grey;
   display: flex;
   flex-direction: row;
   align-self: center;
 }
 
-.Facilities{
+.Facilities{  
+  border-radius: 21px;
   border: grey 1px solid;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  margin: 10px;
   padding: 10px;
   margin-bottom: 20px;
 }
@@ -61,7 +65,9 @@
   border-radius: 16px;
   border: 1px;
   gap: 16px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
+
 .GreenPoint2 {
   text-align: start;
   margin-top: 5%;
@@ -74,4 +80,5 @@
   border-radius: 16px;
   border: 1px;
   gap: 16px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
