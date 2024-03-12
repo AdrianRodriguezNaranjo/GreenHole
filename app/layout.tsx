@@ -1,4 +1,4 @@
-import { Poppins } from "next/font/google";
+import { Poppins, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 
@@ -11,6 +11,8 @@ export const metadata = {
 };
 
 const poppins_sans = Poppins({ subsets: ["latin"], weight: "400" });
+const source_sans = Source_Sans_3({ subsets: ["latin"], weight: "400" });
+
 
 export default function RootLayout({
   children,
