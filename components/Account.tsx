@@ -17,7 +17,7 @@ export default function Account({ user }: AccountProps) {
   const [isLoading, setIsLoading] = React.useState(true);
 
   return (
-    <div className="container mx-auto pt-10">
+    <div className="container mx-auto pt-10 p-3">
       <h1 className="text-4xl font-bold">Account</h1>
 
       <div className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
