@@ -13,8 +13,8 @@ const AboutUs = () => {
             <div className= "h-screen flex-col flex">
                 <img src="/images/friends.webp" alt="Team picture" className="w-full h-auto max-h-64"></img>
                 <div className="flex flex-col gap-4 p-6">
-                    <h2 className="font-sans text-xl font-bold text-teal-800">Meet the team</h2>
-                    <p className="text-lg source_sans.className text-gray-800">Hi! We are designers and developers from Spain, Denmark and
+                    <h2 className="font-sans text-xl font-bold text-logo-color">Meet the team</h2>
+                    <p className="text-lg source_sans.className text-dark-gray font-serif">Hi! We are designers and developers from Spain, Denmark and
                     Iceland and this is an Sustainable island created by --- and funded by Erasmus plus.</p>
                 </div>
             </div>
