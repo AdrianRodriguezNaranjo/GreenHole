@@ -31,6 +31,8 @@ export default function page({ params }: pageProps) {
             width={200}
             height={200}
             className="rounded-lg object-cover w-full"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/w8AAwAB/9jY9gAAAABJRU5ErkJggg=="
           />
 
           {/* News Card */}
@@ -40,12 +42,7 @@ export default function page({ params }: pageProps) {
         </div>
 
         <div className="text-gray-600 mt-4">
-          Talk of artificial intelligence (AI) has taken the recycling industry
-          by storm and for good reason. When applied correctly, today’s emerging
-          AI technologies has transformative powers, driving automation and
-          efficiently enabling more granular sorting of complex material
-          fractions. When not, however, it can be an enormous waste of both time
-          and financial investment.
+         {item.content}
         </div>
       </main>
     </div>
