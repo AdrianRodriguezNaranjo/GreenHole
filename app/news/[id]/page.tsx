@@ -18,6 +18,8 @@ export default async function page({ params }: pageProps) {
   const { data, error } = await supabase.from('news').select().eq('id', params.id).single()
   if (!data || error) return notFound();
 
+  
+
   const item: NewsItems = data;
 
   return (
