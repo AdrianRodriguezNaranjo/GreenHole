@@ -25,14 +25,55 @@ const customIcon = new Icon({
   iconAnchor: [16, 16],
 });
 
-const Map: React.FC<MapProps> = ({ markers, directions, zoom = defaults.zoom }) => {
-  // useEffect(() => {
-  //   if('geolocation' in navigator){
-  //     navigator.geolocation.getCurrentPosition(function() => {
+const locationIcon = new Icon({
+  iconUrl: '/icons/location.svg',
+  iconSize: [32, 32],
+  iconAnchor: [16, 16],
+})
 
-  //     })
-  //   }
-  // },[]);
+interface Location {
+  latitude: number;
+  longitude: number;
+}
+
+const Map: React.FC<MapProps> = ({ markers, directions, zoom = defaults.zoom }) => {
+  const [location, setLocation] = React.useState<Location>(
+    {
+      latitude: 0,
+      longitude: 0
+    }
+  );
+
+
+  const getLocation = () => {
+    
+    if (navigator.geolocation) {
+      
+      navigator.geolocation.getCurrentPosition((position) => {
+          setLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          });
+          console.log(position);
+          
+        },
+        (error) => {
+          console.error('Error getting location:', error);
+        }
+      );
+
+     
+      
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+  };
+  
+  useEffect(() => {
+    getLocation();
+  }, []);
+  
+
   return (
     <MapContainer
       center={markers[0]}
@@ -44,6 +85,23 @@ const Map: React.FC<MapProps> = ({ markers, directions, zoom = defaults.zoom }) 
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      {/* Users marker */}
+      {location && (
+        <Marker
+          position={[location.latitude, location.longitude]}
+          icon={locationIcon}
+        >
+          <Popup>
+            <div className="flex items-center space-x-4">
+              <img src="/icons/location.svg" alt="Icon" className="w-10 h-10" />
+              <div>
+                <h1 className="text-base font-bold">Your Location</h1>
+                <p className="text-sm">This is your current location</p>
+              </div>
+            </div>
+          </Popup>
+        </Marker>
+      )}
       {markers.map((position, index) => (
         <Marker key={index} position={position} draggable={false} icon={customIcon}>
            {/* eventHandlers={{

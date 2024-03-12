@@ -6,10 +6,7 @@ export default async function ProtectedPage() {
   const supabase = createClient();
 
   const { data: { user } } = await supabase.auth.getUser();
-  const { data } = await supabase.from("users").select()
 
-  console.log(data);
-  
  
   
 
