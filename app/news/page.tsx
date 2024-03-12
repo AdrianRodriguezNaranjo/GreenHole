@@ -32,9 +32,8 @@ export default function page() {
             const searchedItems = items.filter((item) => {
               return regex.test(item.title);
             });
-            setNewsItems(searchedItems);
 
-  
+            setNewsItems(searchedItems);
           }}
         />
         <button className="text-gray-600">
