@@ -1,18 +1,41 @@
+"use client";
+
 import Header from "@/components/header/index";
 import MaterialMenu from "@/components/materialmenu";
-// import MyButton from "./button";
+import React, { useState } from 'react';
+import { items } from "@/utils/materials";
+import Footer from "@/components/footer";
 
-export default async function Page() {
+export default function Page() {
+  const [selectedMaterial, setSelectedMaterial] = useState(items[0]);
+
+  const handleMaterialSelect = (material: string) => {
+    const selected = items.find(item => item.title === material);
+    if (selected != undefined) {
+      setSelectedMaterial(selected);
+    }
+  };
 
   return (
     <>
       <Header />
-      <MaterialMenu/>      
+      <MaterialMenu onMaterialSelect={handleMaterialSelect} />
       <div className="bg-white p-6 rounded-lg">
-        <h1 className="font-bold text-black mb-4">Paper</h1>
-        <p className="text-gray-700 mb-4">Press the packaging tightly together. It saves space and reduces overload. The corrugated cardboard can be printed, plastic-coated and colored. Tapes may be included.</p>
-        <p className="text-gray-700 mb-4">Plastic or food scraps, which reduce the recycling value of the material, should be removed.</p>
+        <h1 className="font-bold text-black mb-4">{selectedMaterial.title}</h1>
+        <p className="text-gray-700 mb-4">{selectedMaterial.text1}</p>
+        <p className="text-gray-700 mb-4">{selectedMaterial.text2}</p>
+        <div className="grid grid-cols-3 gap-4 gap-x-10">
+        {Array.from({ length: selectedMaterial.image }, (_, index) => (
+            <img
+              key={index}
+              src={`/icons/material/${selectedMaterial.title.toLowerCase().replace(/\s+/g, '')}${index + 1}.svg`}
+              alt={`${selectedMaterial.title}${index + 1}`}
+              className="h-15 w-15"
+            />
+          ))}
+        </div>
       </div>
+      <Footer/>
     </>
   )
 }

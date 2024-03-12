@@ -1,7 +1,9 @@
+'useClient'
+
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
 import { LatLngExpression } from 'leaflet';
-import Location from '@/app/location/page';
+import Location from '@/server/location/page';
 import Header from "@/components/header/index";
 // import MyButton from "./button";
 

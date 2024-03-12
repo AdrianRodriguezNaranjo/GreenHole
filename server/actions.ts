@@ -2,8 +2,6 @@
 
 import { createClient } from "@/utils/supabase/server";
 
-
-
 interface UpdateUserProps {
     data: {
         displayName: string;
