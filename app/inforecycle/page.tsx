@@ -4,6 +4,7 @@ import Header from "@/components/header/index";
 import MaterialMenu from "@/components/materialmenu";
 import React, { useState } from 'react';
 import { items } from "@/utils/materials";
+import Footer from "@/components/footer";
 
 export default function Page() {
   const [selectedMaterial, setSelectedMaterial] = useState(items[0]);
@@ -34,6 +35,7 @@ export default function Page() {
           ))}
         </div>
       </div>
+      <Footer/>
     </>
   )
 }
