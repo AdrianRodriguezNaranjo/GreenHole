@@ -17,7 +17,7 @@ export default function Page() {
   };
 
   return (
-    <>
+    <div className="h-screen">
       <Header />
       <MaterialMenu onMaterialSelect={handleMaterialSelect} />
       <div className="bg-white p-6 rounded-lg">
@@ -36,6 +36,6 @@ export default function Page() {
         </div>
       </div>
       <Footer/>
-    </>
+    </div>
   )
 }

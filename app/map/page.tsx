@@ -17,6 +17,7 @@ const Map = dynamic(
 
 export default async function Page() {
   let locations = await Location.getAll();
+
   const positions = JSON.parse(locations.props.children);
 
   const markers: LatLngExpression[] = positions.map((location: any) => [
@@ -24,14 +25,17 @@ export default async function Page() {
     location.longitud
   ] as LatLngExpression);
 
-  const directions: string[] = positions.map((location: any) => 
+  const directions: string[] = positions.map((location: any) =>
     location.direction);
+
+  const materials: string[] = positions.map((location: any) =>
+    location.material);
 
   return (
     <>
-      <Header/>
+      <Header />
       <div className="bg-white-700 mx-auto my-5 w-[98%] h-[480px] relative z-10">
-        <Map markers={markers} directions={directions}/>
+        <Map markers={markers} directions={directions} materials={materials} />
       </div>
     </>
   )
