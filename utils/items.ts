@@ -49,7 +49,7 @@ export const items: NewsItems[] = [
   },
   {
     id: 4,
-    title: "What’s AI doing for you? ",
+    title: "What’s AI doing for you?",
     source: "TOMRA",
     image: "https://i.ibb.co/KWvYPPT/image.png",
     content: `Talk of artificial intelligence (AI) has taken the recycling industry

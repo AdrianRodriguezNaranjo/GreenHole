@@ -1,9 +1,10 @@
 import React from "react";
-import { items } from "@/utils/items";
+import { NewsItems, items } from "@/utils/items";
 import { notFound } from "next/navigation";
 import { FaBars } from "react-icons/fa";
 import NewsCard from "@/components/NewsCard";
 import Image from "next/image";
+import { createClient } from "@/utils/supabase/server";
 
 interface pageProps {
   params: {
@@ -11,9 +12,13 @@ interface pageProps {
   };
 }
 
-export default function page({ params }: pageProps) {
-  const item = items.find((item) => item.id === parseInt(params.id));
-  if (!item) return notFound();
+export default async function page({ params }: pageProps) {
+
+  const supabase = await createClient();
+  const { data, error } = await supabase.from('news').select().eq('id', params.id).single()
+  if (!data || error) return notFound();
+
+  const item: NewsItems = data;
 
   return (
     <div className="max-w-[768px] mx-auto my-0 p-6">
