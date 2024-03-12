@@ -15,10 +15,10 @@ const Header: NextPage = () => {
   return (
     <header className="mt-5 ml-6 w-full flex items-center justify-between">
       <div className="flex items-center space-x-4">
-        <img src="/icons/logo.png" alt="Logo" className="h-10 w-10" />
-        <SearchBar placeholder="Search" className="w-[30vh]" />
-        <Menu/>
-      </div>
+        <img src="/icons/logo.png" alt="Logo" className="h-40 w-10" />
+        <SearchBar placeholder="Search" />
+        <MenuOutlined className="text-zinc-800  self-center" />
+      </div>      
     </header>
   );
 };
