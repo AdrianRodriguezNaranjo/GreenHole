@@ -2,6 +2,8 @@ import React from "react";
 import { items } from "@/utils/items";
 import { notFound } from "next/navigation";
 import { FaBars } from "react-icons/fa";
+import NewsCard from "@/components/NewsCard";
+import Image from "next/image";
 
 interface pageProps {
   params: {
@@ -16,18 +18,34 @@ export default function page({ params }: pageProps) {
   return (
     <div className="max-w-[768px] mx-auto my-0 p-6">
       <header className="flex justify-between items-center mb-4">
-        <h1 className="text-xl font-semibold">{item.title}</h1>
+        <h1 className="text-xl font-semibold">{item.title.slice(0, 15)}</h1>
         <FaBars className="text-gray-900 cursor-pointer" size={22} />
       </header>
 
-      <main
-        className="bg-cover bg-center bg-no-repeat h-[80vh] w-full"
-        style={{
-          backgroundImage: `url(${item.image})`,
-        }}
-      >
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-6 place-items-center w-full bottom-0 absolute select-none">
-            dasdas
+      <main className="container mx-auto relative">
+        <div className="relative">
+          {/* Image */}
+          <Image
+            src={item.image}
+            alt={item.title}
+            width={200}
+            height={200}
+            className="rounded-lg object-cover w-full"
+          />
+
+          {/* News Card */}
+          <div className="absolute bottom-0 left-0 w-full px-3 py-3">
+            <NewsCard item={item} />
+          </div>
+        </div>
+
+        <div className="text-gray-600 mt-4">
+          Talk of artificial intelligence (AI) has taken the recycling industry
+          by storm and for good reason. When applied correctly, today’s emerging
+          AI technologies has transformative powers, driving automation and
+          efficiently enabling more granular sorting of complex material
+          fractions. When not, however, it can be an enormous waste of both time
+          and financial investment.
         </div>
       </main>
     </div>

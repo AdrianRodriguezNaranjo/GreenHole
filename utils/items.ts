@@ -1,4 +1,4 @@
-interface NewsItems {
+export interface NewsItems {
   id: number;
   title: string;
   source: "BBC News" | "Reuters" | "The NYT" | "TOMRA";

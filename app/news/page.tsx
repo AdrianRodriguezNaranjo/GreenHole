@@ -46,7 +46,7 @@ export default function page() {
 
         <div className="space-y-6 p-4">
           {newsItems.map((item) => (
-            <div className="grid grid-cols-2 space-y-2" key={item.id}>
+            <div className="grid grid-cols-2 gap-7 items-center space-y-2" key={item.id}>
               <img
                 alt={item.title}
                 className="aspect-square object-cover rounded-lg hover:shadow-lg transition-shadow cursor-pointer"
