@@ -1,6 +1,6 @@
 "use client"
 
-import React ,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { LatLngExpression, LatLngTuple, Icon } from 'leaflet';
 
@@ -11,6 +11,7 @@ import "leaflet-defaulticon-compatibility";
 interface MapProps {
   markers: Array<LatLngExpression | LatLngTuple>,
   directions: Array<string>,
+  materials: Array<string>,
   zoom?: number,
 }
 
@@ -25,14 +26,10 @@ const customIcon = new Icon({
   iconAnchor: [16, 16],
 });
 
-const Map: React.FC<MapProps> = ({ markers, directions, zoom = defaults.zoom }) => {
-  // useEffect(() => {
-  //   if('geolocation' in navigator){
-  //     navigator.geolocation.getCurrentPosition(function() => {
+const Map: React.FC<MapProps> = ({ markers, directions, materials, zoom = defaults.zoom }) => {
 
-  //     })
-  //   }
-  // },[]);
+
+
   return (
     <MapContainer
       center={markers[0]}
@@ -46,16 +43,24 @@ const Map: React.FC<MapProps> = ({ markers, directions, zoom = defaults.zoom }) 
       />
       {markers.map((position, index) => (
         <Marker key={index} position={position} draggable={false} icon={customIcon}>
-           {/* eventHandlers={{
-          onclick => (location.id)} */}
           <Popup minWidth={150}>
             <div className="flex items-center space-x-4">
               <img src="/icons/recycleplant.svg" alt="Icon" className="w-10 h-10" />
               <div>
-                <h1 className="text-base font-bold">Green Point</h1>
-                <p className="text-sm">{directions[index]}</p>
+                <h1 className="text-base font-bold text-slate-500">Green Point</h1>
+                <p className="text-sm">{directions[index]}</p>                                
               </div>
             </div>
+            <div className='flex space-x-2'>
+                  {materials[index].split(',').map((material, materialIndex) => (
+                    <img
+                      key={materialIndex}
+                      src={`/icons/map/${material.toLowerCase().trim()}.svg`}
+                      alt={`${material}${materialIndex + 1}`}
+                      className="h-15 w-15"
+                    />
+                  ))}
+                </div>
           </Popup>
         </Marker>
       ))}
