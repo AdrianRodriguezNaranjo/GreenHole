@@ -7,8 +7,6 @@ import Header from "@/components/Header";
 
 export default async function Index() {
 
-import AuthButton from "../components/AuthButton";
-import { createClient } from "@/utils/supabase/server";
 
   const canInitSupabaseClient = () => {
     // This function is just for the interactive tutorial.
@@ -54,10 +52,11 @@ import { createClient } from "@/utils/supabase/server";
         </p>
       </footer>  
 
-<!--   return (
+</div> )
+/* <!--   return (
     <div className="container mx-auto pt-10">
       <h1 className="text-4xl font-bold">THIS IS A HOME PAGE</h1>
       //{isSupabaseConnected && <AuthButton />}
     </div>
-  ); -->
+  ); --> */
 }
