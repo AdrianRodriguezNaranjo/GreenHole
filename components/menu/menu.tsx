@@ -111,6 +111,7 @@ export default function Menu({ isLoggedIn }: { isLoggedIn: boolean }) {
 
                     if (signOutResponse) {
                       toast.success("You have been signed out");
+                      router.refresh()
                       router.push("/");
                       return;
                     } else {
