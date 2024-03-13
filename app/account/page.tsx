@@ -5,13 +5,10 @@ import Account from "@/components/Account";
 export default async function ProtectedPage() {
   const supabase = createClient();
 
-  const { data: { user } } = await supabase.auth.getUser();
-
- 
-  
+  const { data: { user } } = await supabase.auth.getUser();  
 
   if (!user) {
-    return redirect("/login");
+    return redirect("/");
   }
 
   const action = async (formData: FormData) => {

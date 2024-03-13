@@ -1,20 +1,27 @@
+'useClient'
+
+import React, { useState } from 'react';
 import dynamic from "next/dynamic";
-import { useMemo } from "react";
 import { LatLngExpression } from 'leaflet';
-import Location from '@/app/location/page';
+import { getAll } from '@/server/location/Location';
 import Header from "@/components/header/index";
-// import MyButton from "./button";
+import { createClient } from '@/utils/supabase/server';
+import { Button } from 'antd';
+
+const Map = dynamic(
+  () => import('@/components/map/'),
+  {
+    loading: () => <p>A map is loading</p>,
+    ssr: false
+  }
+);
 
 export default async function Page() {
-  const Map = useMemo(() => dynamic(
-    () => import('@/components/map/'),
-    {
-      loading: () => <p>A map is loading</p>,
-      ssr: false
-    }
-  ), [])
+  const supabase = createClient();
+  const { data: { user} } = await supabase.auth.getUser()
 
-  let locations = await Location.getAll();
+  let locations = await getAll();
+
   const positions = JSON.parse(locations.props.children);
 
   const markers: LatLngExpression[] = positions.map((location: any) => [
@@ -22,15 +29,23 @@ export default async function Page() {
     location.longitud
   ] as LatLngExpression);
 
-  const directions: string[] = positions.map((location: any) => 
+  const directions: string[] = positions.map((location: any) =>
     location.direction);
+
+  const materials: string[] = positions.map((location: any) =>
+    location.material);
 
   return (
     <>
-      <Header/>
-      <div className="bg-white-700 mx-auto my-5 w-[98%] h-[480px]">
-        <Map markers={markers} directions={directions}/>
+      <Header />
+      <div className="bg-white-700 mx-auto my-5 w-[98%] h-[480px] relative z-10">
+        <Map markers={markers} directions={directions} materials={materials} />
       </div>
+      {user && (
+          <>
+            <Button href="/formMap">Add location</Button>
+          </>
+        )}
     </>
   )
 }
