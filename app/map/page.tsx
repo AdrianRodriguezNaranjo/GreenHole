@@ -5,6 +5,8 @@ import dynamic from "next/dynamic";
 import { LatLngExpression } from 'leaflet';
 import { getAll } from '@/server/location/Location';
 import Header from "@/components/header/index";
+import { createClient } from '@/utils/supabase/server';
+import { Button } from 'antd';
 
 const Map = dynamic(
   () => import('@/components/map/'),
@@ -15,6 +17,9 @@ const Map = dynamic(
 );
 
 export default async function Page() {
+  const supabase = createClient();
+  const { data: { user} } = await supabase.auth.getUser()
+
   let locations = await getAll();
 
   const positions = JSON.parse(locations.props.children);
@@ -36,6 +41,11 @@ export default async function Page() {
       <div className="bg-white-700 mx-auto my-5 w-[98%] h-[480px] relative z-10">
         <Map markers={markers} directions={directions} materials={materials} />
       </div>
+      {user && (
+          <>
+            <Button href="/formMap">Add location</Button>
+          </>
+        )}
     </>
   )
 }

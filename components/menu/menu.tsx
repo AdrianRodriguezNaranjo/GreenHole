@@ -5,17 +5,13 @@ import { motion } from "framer-motion";
 const Menu: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-
   const handleMenuClick = () => {
     setMenuOpen(!menuOpen);
   };
 
   const closeMenu = () => {
     setMenuOpen(false);
-  };
-
-  
-    
+  };    
 
   return (
     <div className="relative">
