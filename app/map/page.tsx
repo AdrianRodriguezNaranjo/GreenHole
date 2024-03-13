@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react';
 import dynamic from "next/dynamic";
-import { useMemo } from "react";
 import { LatLngExpression } from 'leaflet';
-import Location from '@/server/location/page';
+import { getAll } from '@/server/location/Location';
 import Header from "@/components/header/index";
 
 const Map = dynamic(
@@ -16,7 +15,7 @@ const Map = dynamic(
 );
 
 export default async function Page() {
-  let locations = await Location.getAll();
+  let locations = await getAll();
 
   const positions = JSON.parse(locations.props.children);
 
