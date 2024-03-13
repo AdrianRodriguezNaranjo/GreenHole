@@ -2,9 +2,12 @@ import React from "react";
 import { NewsItems, items } from "@/utils/items";
 import { notFound } from "next/navigation";
 import { FaBars } from "react-icons/fa";
+<<<<<<< HEAD
 import NewsCard from "@/components/NewsCard";
 import Image from "next/image";
 import { createClient } from "@/utils/supabase/server";
+=======
+>>>>>>> 32b063c (issue#13 last commit)
 import Header from "@/components/Header";
 
 interface pageProps {
@@ -26,9 +29,17 @@ export default async function page({ params }: pageProps) {
 
   return (
     <div className="max-w-[768px] mx-auto my-0 p-6">
+<<<<<<< HEAD
       <div className="mb-5">
         <Header />
       </div>
+=======
+      {/* <header className="flex justify-between items-center mb-4">
+        <h1 className="text-xl font-semibold">{item.title}</h1>
+        <FaBars className="text-gray-900 cursor-pointer" size={22} />
+      </header> */}
+      <Header/>
+>>>>>>> 32b063c (issue#13 last commit)
 
       <main className="container mx-auto relative">
         <div className="relative">
