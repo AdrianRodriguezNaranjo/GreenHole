@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import dynamic from "next/dynamic";
 import { LatLngExpression } from 'leaflet';
 import { getAll } from '@/server/location/Location';
-import Header from "@/components/header/index";
+import Header from "@/components/Header";
 import { createClient } from '@/utils/supabase/server';
 import { Button } from 'antd';
 
@@ -36,9 +36,9 @@ export default async function Page() {
     location.material);
 
   return (
-    <>
+    <div>
       <Header />
-      <div className="bg-white-700 mx-auto my-5 w-[98%] h-[480px] relative z-10">
+      <div className="bg-white-700 mx-auto my-5 w-auto h-[480px] relative z-10">
         <Map markers={markers} directions={directions} materials={materials} />
       </div>
       {user && (
@@ -46,6 +46,6 @@ export default async function Page() {
             <Button href="/formMap">Add location</Button>
           </>
         )}
-    </>
+    </div>
   )
 }
