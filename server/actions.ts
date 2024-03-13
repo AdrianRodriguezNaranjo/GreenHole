@@ -2,8 +2,6 @@
 
 import { createClient } from "@/utils/supabase/server";
 
-
-
 interface UpdateUserProps {
     data: {
         displayName: string;
@@ -24,4 +22,15 @@ export async function updateUser(data: UpdateUserProps) {
  } else {
     return true
  }
+}
+
+export async function getNewsItems() {
+    const supabase = createClient()
+    const { data, error } = await supabase.from('news').select('*')
+
+    if (error) {
+        return null
+    } else {
+        return data
+    }
 }
