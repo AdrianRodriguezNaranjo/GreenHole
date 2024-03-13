@@ -2,10 +2,18 @@
 
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
+<<<<<<< HEAD
 import { LatLngExpression } from "leaflet";
 import { getAll } from "@/server/location/Location";
 import Header from "@/components/header/index";
 import { createClient } from "@/utils/supabase/server";
+=======
+import { LatLngExpression } from 'leaflet';
+import { getAll } from '@/server/location/Location';
+import Header from "@/components/Header";
+import { createClient } from '@/utils/supabase/server';
+import { Button } from 'antd';
+>>>>>>> 5f8670b (issue#13 header change)
 
 import { Button } from "antd";
 
@@ -37,16 +45,25 @@ export default async function Page() {
   );
 
   return (
-    <>
+    <div>
       <Header />
-      <div className="bg-white-700 mx-auto my-5 w-[98%] h-[480px] relative z-10">
+      <div className="bg-white-700 mx-auto my-5 w-auto h-[480px] relative z-10">
         <Map markers={markers} directions={directions} materials={materials} />
       </div>
       {user && (
+<<<<<<< HEAD
         <>
           <Button href="/formMap">Add location</Button>
         </>
       )}
     </>
   );
+=======
+          <>
+            <Button href="/formMap">Add location</Button>
+          </>
+        )}
+    </div>
+  )
+>>>>>>> 5f8670b (issue#13 header change)
 }

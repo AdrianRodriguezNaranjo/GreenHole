@@ -1,6 +1,6 @@
 "use client";
 
-import Header from "@/components/header/index";
+import Header from "@/components/Header";
 import MaterialMenu from "@/components/materialmenu";
 import React, { useState } from 'react';
 import { items } from "@/utils/materials";

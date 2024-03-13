@@ -30,6 +30,7 @@ export default function Header() {
 
   return (
     <header className="p-4 flex items-center justify-between border-b-2 border-gray-400">
+<<<<<<< HEAD
       <div className="flex items-center space-x-64 header-body">
         <img
           src="/icons/logo.png"
@@ -39,6 +40,11 @@ export default function Header() {
         />
 
         <Menu isLoggedIn={isLoggedIn} />
+=======
+    <div className="flex items-center space-x-64 header-body">
+      <img src="/icons/logo.png" alt="Logo" className="h-10 w-10 header-img" onClick={() => router.push("/")} />
+      <Menu />
+>>>>>>> 5f8670b (issue#13 header change)
       </div>
     </header>
   );
