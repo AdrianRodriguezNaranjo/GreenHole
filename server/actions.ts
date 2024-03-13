@@ -23,3 +23,14 @@ export async function updateUser(data: UpdateUserProps) {
     return true
  }
 }
+
+export async function getNewsItems() {
+    const supabase = createClient()
+    const { data, error } = await supabase.from('news').select('*')
+
+    if (error) {
+        return null
+    } else {
+        return data
+    }
+}

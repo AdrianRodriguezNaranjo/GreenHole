@@ -7,6 +7,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'air-force': '#658E9C',
+        'logo-color':'#015958',
+        'mindaro':'#C3E991',
+        'burnt-orche':'#BB4F35',
+        'sunglow':'#FFB419',
+        'dark-gray':'#484848',
+        'light-gray':'#DDDDDD',
+        'medium-gray': '#999999',
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         btn: {
@@ -14,7 +22,11 @@ module.exports = {
           "background-hover": "hsl(var(--btn-background-hover))",
         },
       },
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+        serif: ['Source Sans 3', 'serif'],
     },
   },
   plugins: [],
-};
+},
+}
