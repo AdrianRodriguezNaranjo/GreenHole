@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 
 const Menu: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const dropdownRef = useRef(null);
 
 
   const handleMenuClick = () => {
@@ -16,13 +15,7 @@ const Menu: React.FC = () => {
   };
 
   
-  useEffect(() => {
-    document.addEventListener("mousedown", closeMenu);
-
-    return () => {
-      document.removeEventListener("mousedown", closeMenu);
-    };
-  }, []);
+    
 
   return (
     <div className="relative">
@@ -35,7 +28,6 @@ const Menu: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -25 }}
           transition={{ duration: 0.2 }}
-          ref={dropdownRef}
           className="absolute top-10 right-0 mt-2 w-48 bg-white shadow-lg rounded-md z-50"
         >
           <ul className="pl-6">
