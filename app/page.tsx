@@ -6,7 +6,6 @@ import SignUpUserSteps from "@/components/tutorial/SignUpUserSteps";
 import Home from "./home/page";
 import Header from "@/components/Header";
 
-
 export default async function Index() {
   const canInitSupabaseClient = () => {
     // This function is just for the interactive tutorial.
@@ -22,6 +21,7 @@ export default async function Index() {
   const isSupabaseConnected = canInitSupabaseClient();
 
   return (
+
     <>
       <Header/>
       <Home/>
