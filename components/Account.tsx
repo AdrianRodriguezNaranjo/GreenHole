@@ -3,7 +3,7 @@
 import Button from "./Button";
 import React from "react";
 import { User } from "@supabase/supabase-js";
-import { updateUser } from "@/server/actions";
+import { signOut, updateUser } from "@/server/actions";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
@@ -13,7 +13,9 @@ interface AccountProps {
 
 export default function Account({ user }: AccountProps) {
   const router = useRouter();
-  const [displayName, setDisplayName] = React.useState(user?.user_metadata?.displayName);
+  const [displayName, setDisplayName] = React.useState(
+    user?.user_metadata?.displayName
+  );
   const [isLoading, setIsLoading] = React.useState(true);
 
   return (
@@ -39,36 +41,54 @@ export default function Account({ user }: AccountProps) {
           variant="primary"
           disabled={isLoading}
           onClick={async () => {
-           
             const promise = new Promise(async (resolve, reject) => {
-              if (!displayName) return reject("Please enter a display name")
-              if (displayName.length < 3) return reject("Display name must be at least 3 characters long")
-              if (displayName.length > 30) return reject("Display name must be at most 30 characters long")
-              if (displayName === user.user_metadata.displayName) return reject("Display name is the same as before")
+              if (!displayName) return reject("Please enter a display name");
+              if (displayName.length < 3)
+                return reject(
+                  "Display name must be at least 3 characters long"
+                );
+              if (displayName.length > 30)
+                return reject(
+                  "Display name must be at most 30 characters long"
+                );
+              if (displayName === user.user_metadata.displayName)
+                return reject("Display name is the same as before");
 
               const updated = await updateUser({
                 data: {
                   displayName,
                 },
               });
-  
+
               if (updated) {
-                router.refresh()
-                resolve(true)
+                router.refresh();
+                resolve(true);
               } else {
-                reject("An error occurred, please try again")
+                reject("An error occurred, please try again");
               }
-            })
+            });
 
             toast.promise(promise, {
               loading: "Updating...",
               success: "Updated!",
-              error: (err) => (err as string),
-            })
+              error: (err) => err as string,
+            });
           }}
-          
         >
           Update
+        </Button>
+        <Button
+          variant="danger"
+          onClick={async () => {
+            const signout = await signOut();
+            if (signout) {
+              router.push("/login");
+            } else {
+              toast.error("An error occurred, please try again");
+            }
+          }}
+        >
+          <a href="/auth/signout">Sign Out</a>
         </Button>
       </div>
     </div>

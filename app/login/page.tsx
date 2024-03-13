@@ -5,7 +5,12 @@ import { redirect } from "next/navigation";
 
 import { SubmitButton } from "../../components/submit-button";
 
-export default function Login({ searchParams,}: { searchParams: { message: string }; }) {
+export default async function Login({ searchParams,}: { searchParams: { message: string }; }) {
+  const supabase = createClient();
+  const { data: { user }} = await supabase.auth.getUser();
+  if (user) {
+    return redirect("/");
+  }
 
   const signIn = async (formData: FormData) => {
     "use server";
@@ -22,7 +27,7 @@ export default function Login({ searchParams,}: { searchParams: { message: strin
     if (error) {
       return redirect("/login?message=Could not authenticate user");
     }
-    return redirect("/account");
+    return redirect("/");
   };
 
   const signUp = async (formData: FormData) => {
@@ -99,6 +104,13 @@ export default function Login({ searchParams,}: { searchParams: { message: strin
         >
           Log In
         </SubmitButton>
+        <SubmitButton
+          formAction={signUp}
+          className="rounded-lg p-3 w-80 bg-logo-color text-white"
+          pendingText="Signing Up..."
+        >
+          Sign Up
+        </SubmitButton>
       
 
         <SubmitButton 
@@ -111,7 +123,7 @@ export default function Login({ searchParams,}: { searchParams: { message: strin
         </SubmitButton>
 
         {searchParams?.message && (
-          <p className="">
+          <p className="bg-gray-700 text-white p-2 rounded-lg">
             {searchParams.message}
           </p>
         )}
