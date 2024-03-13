@@ -5,6 +5,7 @@ import { FaBars } from "react-icons/fa";
 import NewsCard from "@/components/NewsCard";
 import Image from "next/image";
 import { createClient } from "@/utils/supabase/server";
+import Header from "@/components/Header";
 
 interface pageProps {
   params: {
@@ -24,10 +25,11 @@ export default async function page({ params }: pageProps) {
 
   return (
     <div className="max-w-[768px] mx-auto my-0 p-6">
-      <header className="flex justify-between items-center mb-4">
+      {/* <header className="flex justify-between items-center mb-4">
         <h1 className="text-xl font-semibold">{item.title.slice(0, 15)}</h1>
         <FaBars className="text-gray-900 cursor-pointer" size={22} />
-      </header>
+      </header> */}
+      <Header/>
 
       <main className="container mx-auto relative">
         <div className="relative">
