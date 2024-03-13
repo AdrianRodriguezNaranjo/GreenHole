@@ -1,39 +1,40 @@
-'useClient'
+"useClient";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import dynamic from "next/dynamic";
-import { LatLngExpression } from 'leaflet';
-import { getAll } from '@/server/location/Location';
+import { LatLngExpression } from "leaflet";
+import { getAll } from "@/server/location/Location";
 import Header from "@/components/header/index";
-import { createClient } from '@/utils/supabase/server';
-import { Button } from 'antd';
+import { createClient } from "@/utils/supabase/server";
 
-const Map = dynamic(
-  () => import('@/components/map/'),
-  {
-    loading: () => <p>A map is loading</p>,
-    ssr: false
-  }
-);
+import { Button } from "antd";
+
+const Map = dynamic(() => import("@/components/map/"), {
+  loading: () => <p>A map is loading</p>,
+  ssr: false,
+});
 
 export default async function Page() {
   const supabase = createClient();
-  const { data: { user} } = await supabase.auth.getUser()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   let locations = await getAll();
 
   const positions = JSON.parse(locations.props.children);
 
-  const markers: LatLngExpression[] = positions.map((location: any) => [
-    location.latitud,
-    location.longitud
-  ] as LatLngExpression);
+  const markers: LatLngExpression[] = positions.map(
+    (location: any) => [location.latitud, location.longitud] as LatLngExpression
+  );
 
-  const directions: string[] = positions.map((location: any) =>
-    location.direction);
+  const directions: string[] = positions.map(
+    (location: any) => location.direction
+  );
 
-  const materials: string[] = positions.map((location: any) =>
-    location.material);
+  const materials: string[] = positions.map(
+    (location: any) => location.material
+  );
 
   return (
     <>
@@ -42,10 +43,10 @@ export default async function Page() {
         <Map markers={markers} directions={directions} materials={materials} />
       </div>
       {user && (
-          <>
-            <Button href="/formMap">Add location</Button>
-          </>
-        )}
+        <>
+          <Button href="/formMap">Add location</Button>
+        </>
+      )}
     </>
-  )
+  );
 }

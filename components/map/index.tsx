@@ -75,6 +75,26 @@ const Map: React.FC<MapProps> = ({ markers, directions, materials, zoom = defaul
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      {/* Users marker */}
+      {location && (
+        <Marker
+          position={[location.latitude, location.longitude]}
+          icon={locationIcon}
+        >
+          <Popup>
+            <div className="flex items-center space-x-4">
+              <img src="/icons/location.svg" alt="Icon" className="w-10 h-10" />
+              <div>
+                <h1 className="text-base font-bold">Your Location</h1>
+                <p className="text-sm">
+                  
+                </p>
+              </div>
+            </div>
+          </Popup>
+        </Marker>
+      )}
+
       {markers.map((position, index) => (
         <Marker key={index} position={position} draggable={false} icon={customIcon}>
           <Popup minWidth={150}>
