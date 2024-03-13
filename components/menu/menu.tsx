@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MenuOutlined } from "@ant-design/icons";
 import { motion } from "framer-motion";
 
 const Menu: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
 
   const handleMenuClick = () => {
     setMenuOpen(!menuOpen);
@@ -12,6 +14,15 @@ const Menu: React.FC = () => {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+
+  
+  useEffect(() => {
+    document.addEventListener("mousedown", closeMenu);
+
+    return () => {
+      document.removeEventListener("mousedown", closeMenu);
+    };
+  }, []);
 
   return (
     <div className="relative">
@@ -24,6 +35,7 @@ const Menu: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -25 }}
           transition={{ duration: 0.2 }}
+          ref={dropdownRef}
           className="absolute top-10 right-0 mt-2 w-48 bg-white shadow-lg rounded-md z-50"
         >
           <ul className="pl-6">
