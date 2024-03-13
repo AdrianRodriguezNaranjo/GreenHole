@@ -2,6 +2,7 @@ import React from "react";
 import { items } from "@/utils/items";
 import { notFound } from "next/navigation";
 import { FaBars } from "react-icons/fa";
+import Header from "@/components/Header";
 
 interface pageProps {
   params: {
@@ -15,10 +16,11 @@ export default function page({ params }: pageProps) {
 
   return (
     <div className="max-w-[768px] mx-auto my-0 p-6">
-      <header className="flex justify-between items-center mb-4">
+      {/* <header className="flex justify-between items-center mb-4">
         <h1 className="text-xl font-semibold">{item.title}</h1>
         <FaBars className="text-gray-900 cursor-pointer" size={22} />
-      </header>
+      </header> */}
+      <Header/>
 
       <main
         className="bg-cover bg-center bg-no-repeat h-[80vh] w-full"
