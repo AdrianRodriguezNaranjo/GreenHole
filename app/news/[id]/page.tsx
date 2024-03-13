@@ -14,22 +14,21 @@ interface pageProps {
 }
 
 export default async function page({ params }: pageProps) {
-
   const supabase = await createClient();
-  const { data, error } = await supabase.from('news').select().eq('id', params.id).single()
+  const { data, error } = await supabase
+    .from("news")
+    .select()
+    .eq("id", params.id)
+    .single();
   if (!data || error) return notFound();
-
-  
 
   const item: NewsItems = data;
 
   return (
     <div className="max-w-[768px] mx-auto my-0 p-6">
-      {/* <header className="flex justify-between items-center mb-4">
-        <h1 className="text-xl font-semibold">{item.title.slice(0, 15)}</h1>
-        <FaBars className="text-gray-900 cursor-pointer" size={22} />
-      </header> */}
-      <Header/>
+      <div className="mb-5">
+        <Header />
+      </div>
 
       <main className="container mx-auto relative">
         <div className="relative">
@@ -50,9 +49,7 @@ export default async function page({ params }: pageProps) {
           </div>
         </div>
 
-        <div className="text-gray-600 mt-4">
-         {item.content}
-        </div>
+        <div className="text-gray-600 mt-4">{item.content}</div>
       </main>
     </div>
   );

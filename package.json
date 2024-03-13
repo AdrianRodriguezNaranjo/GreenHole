@@ -17,6 +17,7 @@
     "autoprefixer": "10.4.17",
     "embla-carousel-autoplay": "^8.0.0",
     "embla-carousel-react": "^8.0.0",
+    "framer-motion": "^11.0.12",
     "geist": "^1.2.1",
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",
