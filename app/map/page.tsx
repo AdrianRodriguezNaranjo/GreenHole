@@ -1,6 +1,6 @@
-'useClient'
+"useClient";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import { LatLngExpression } from 'leaflet';
 import { getAll } from '@/server/location/Location';
@@ -8,32 +8,32 @@ import Header from "@/components/Header";
 import { createClient } from '@/utils/supabase/server';
 import { Button } from 'antd';
 
-const Map = dynamic(
-  () => import('@/components/map/'),
-  {
-    loading: () => <p>A map is loading</p>,
-    ssr: false
-  }
-);
+const Map = dynamic(() => import("@/components/map/"), {
+  loading: () => <p>A map is loading</p>,
+  ssr: false,
+});
 
 export default async function Page() {
   const supabase = createClient();
-  const { data: { user} } = await supabase.auth.getUser()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   let locations = await getAll();
 
   const positions = JSON.parse(locations.props.children);
 
-  const markers: LatLngExpression[] = positions.map((location: any) => [
-    location.latitud,
-    location.longitud
-  ] as LatLngExpression);
+  const markers: LatLngExpression[] = positions.map(
+    (location: any) => [location.latitud, location.longitud] as LatLngExpression
+  );
 
-  const directions: string[] = positions.map((location: any) =>
-    location.direction);
+  const directions: string[] = positions.map(
+    (location: any) => location.direction
+  );
 
-  const materials: string[] = positions.map((location: any) =>
-    location.material);
+  const materials: string[] = positions.map(
+    (location: any) => location.material
+  );
 
   return (
     <div>
