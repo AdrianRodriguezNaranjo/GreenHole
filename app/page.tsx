@@ -4,6 +4,7 @@ import Home from "./home/page";
 import Header from "@/components/Header";
 import NewsList from "@/components/NewsList";
 import Footer from "@/components/footer";
+import './style.css';
 
 export default async function Index() {
   const supabase = await createClient();
@@ -23,11 +24,11 @@ export default async function Index() {
   // const isSupabaseConnected = canInitSupabaseClient();
 
   return (
-    <>
+    <div className="home">
       <Header />
       <Home />
-      <NewsList items={data as NewsItems[]}/>
+      {/* <NewsList items={data as NewsItems[]}/> */}
       <Footer/>
-    </>
+    </div>
   )
 }

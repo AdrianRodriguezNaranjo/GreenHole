@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState } from 'react';
-import {create} from '@/server/location/Location';
-import { Button,Form, Input } from 'antd';
+import { create } from '@/server/location/Location';
+import { Button, Form, Input } from 'antd';
+import Header from '@/components/Header';
+import Footer from '@/components/footer';
 
 export default function FormMap() {
   const [direction, setDirection] = useState('');
@@ -28,7 +30,7 @@ export default function FormMap() {
 
   const handleSubmit = async () => {
     try {
-      await create(direction,material,latitud,longitud);
+      await create(direction, material, latitud, longitud);
       console.log('Datos insertados correctamente');
     } catch (error) {
       console.error('Error al insertar los datos:', error);
@@ -36,7 +38,8 @@ export default function FormMap() {
   };
 
   return (
-    <>
+    <div className='h-sreen'>
+      <Header/>
       <Form onFinish={handleSubmit}>
         <Form.Item label="Direction" name="direction">
           <Input type="text" value={direction} onChange={handleChangeDirection} />
@@ -50,8 +53,10 @@ export default function FormMap() {
         <Form.Item label="Longitud" name="longitud">
           <Input type="number" value={longitud} onChange={handleChangeLongitud} />
         </Form.Item>
-        <Button  href="/map" htmlType="submit">Confirm</Button>
+        <Button href="/map" htmlType="submit">Confirm</Button>
+        <Button href="/map" htmlType="button">Cancel</Button>
       </Form>
-    </>
+      <Footer/>
+    </div>
   );
 }

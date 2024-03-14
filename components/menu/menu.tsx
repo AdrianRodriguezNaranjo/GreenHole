@@ -124,7 +124,7 @@ export default function Menu({ isLoggedIn }: { isLoggedIn: boolean }) {
                     color: "#658E9C",
                   }}
                 >
-                  Sign out
+                  Log out
                 </a>
               </li>
             ) : (
@@ -139,7 +139,7 @@ export default function Menu({ isLoggedIn }: { isLoggedIn: boolean }) {
                     color: "#658E9C",
                   }}
                 >
-                  Sign in
+                  Admin login
                 </a>
               </li>
             )}
