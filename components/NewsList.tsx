@@ -3,9 +3,7 @@
 import { NewsItems } from '@/utils/items';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React from 'react'
-import { FaBars } from 'react-icons/fa';
-import { SlOptionsVertical } from 'react-icons/sl';
+import React from 'react';
 import Menu from './menu/menu';
 import Footer from './footer';
 
@@ -18,9 +16,9 @@ const icons = {
 };
 
 export default function NewsList({ items }: { items: NewsItems[] }) {
-  console.log(items);
+  // console.log(items);
 
-  const router = useRouter()
+  const router = useRouter();
   const [newsItems, setNewsItems] = React.useState<NewsItems[]>(items);
 
   return (
@@ -59,11 +57,7 @@ export default function NewsList({ items }: { items: NewsItems[] }) {
                 onClick={() => router.push(`/news/${item.id}`)}
               />
               <div>
-
-
                 <h2 className="text-lg font-semibold">{item.title}</h2>
-
-
                 <div className="flex items-center space-x-1 text-sm text-gray-500  bottom-0 overflow-hidden">
                   {item.source === "BBC News" && (
                     <img src={icons.bbc} alt="BBC News" className="w-4 h-4" />
