@@ -21,7 +21,6 @@ const twoColors3: ProgressProps['strokeColor'] = {
 export default function Transparency() {
   return (
     <>
-      <Header />
       <div className="transparency-body">
         <div style={{width:'100%'}}>
         <Header/>

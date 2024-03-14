@@ -2,9 +2,16 @@
 
 import React, { useState } from 'react';
 import { create } from '@/server/location/Location';
-import { Button, Form, Input } from 'antd';
+import { Button, ConfigProvider, Form, Input } from 'antd';
 import Header from '@/components/Header';
 import Footer from '@/components/footer';
+import './style.css';
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: "300",
+});
 
 export default function FormMap() {
   const [direction, setDirection] = useState('');
@@ -38,25 +45,39 @@ export default function FormMap() {
   };
 
   return (
-    <div className='h-sreen'>
-      <Header/>
-      <Form onFinish={handleSubmit}>
-        <Form.Item label="Direction" name="direction">
-          <Input type="text" value={direction} onChange={handleChangeDirection} />
-        </Form.Item>
-        <Form.Item label="Material" name="material">
-          <Input type="text" value={material} onChange={handleChangeMaterial} />
-        </Form.Item>
-        <Form.Item label="Latitud" name="latitud">
-          <Input type="number" value={latitud} onChange={handleChangeLatitud} />
-        </Form.Item>
-        <Form.Item label="Longitud" name="longitud">
-          <Input type="number" value={longitud} onChange={handleChangeLongitud} />
-        </Form.Item>
-        <Button href="/map" htmlType="submit">Confirm</Button>
-        <Button href="/map" htmlType="button">Cancel</Button>
-      </Form>
-      <Footer/>
+    <div className='mainpage'>
+      <Header />
+      <div className='container'>
+      <ConfigProvider
+            theme={{
+                token: {
+                    fontFamily: poppins.style.fontFamily,
+                },
+            }}
+        >
+        <Form onFinish={handleSubmit} className='form p-3'>
+          <Form.Item label="Direction" name="direction">
+            <Input type="text" value={direction} onChange={handleChangeDirection} />
+          </Form.Item>
+          <Form.Item label="Material" name="material">
+            <Input type="text" value={material} onChange={handleChangeMaterial} />
+          </Form.Item>
+          <Form.Item label="Latitud" name="latitud">
+            <Input type="number" value={latitud} onChange={handleChangeLatitud} />
+          </Form.Item>
+          <Form.Item label="Longitud" name="longitud">
+            <Input type="number" value={longitud} onChange={handleChangeLongitud} />
+          </Form.Item>
+          <div className='flex flex-row justify-center space-x-4'>
+          <Button href="/map" htmlType="submit" style={{backgroundColor:'#015958',color:'white'}}>Confirm</Button>
+          <Button href="/map" htmlType="button">Cancel</Button>
+          </div>
+        </Form>
+        </ConfigProvider>
+      </div>
+      <div style={{ bottom: '0' }}>
+        <Footer />
+      </div>
     </div>
   );
 }
