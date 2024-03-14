@@ -35,9 +35,7 @@ export default function Page() {
           ))}
         </div>
       </div>
-      <div style={{position:'fixed', width:'100%', paddingTop:'2%'}}>
       <Footer/>
-      </div>
     </div>
   )
 }

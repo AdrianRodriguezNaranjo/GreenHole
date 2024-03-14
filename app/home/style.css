@@ -17,8 +17,8 @@ body {
 }
 
 .embla {
+  height: 68vh;
   overflow: hidden;
-  height: 70vh;
 }
 
 .embla__container {
@@ -32,6 +32,8 @@ body {
 
 .embla__slide {
   margin: 10%;
+  margin-top: 7%;
+  margin-bottom: 7%;
   flex-direction: column;
   flex-wrap: wrap;
   flex: 0 0 auto;

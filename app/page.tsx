@@ -2,33 +2,24 @@ import { createClient } from "@/utils/supabase/server";
 import { NewsItems } from "@/utils/items";
 import Home from "./home/page";
 import Header from "@/components/Header";
-import NewsList from "@/components/NewsList";
 import Footer from "@/components/footer";
 import './style.css';
+import NewsList2 from "@/components/NewsList2";
 
 export default async function Index() {
   const supabase = await createClient();
-  const { data } = await supabase.from('news').select();
-
-  // const canInitSupabaseClient = async () => {
-  //   // This function is just for the interactive tutorial.
-  //   // Feel free to remove it once you have Supabase connected.
-  //   try {
-  //     await createClient();
-  //     return true;
-  //   } catch (e) {
-  //     return false;
-  //   }
-  // };
-
-  // const isSupabaseConnected = canInitSupabaseClient();
+  const { data } = await supabase.from('news').select()
 
   return (
-    <div className="home">
-      <Header />
+    <div className="home" >
+      <div style={{ width: '100%' }}>
+        <Header />
+      </div>
       <Home />
-      {/* <NewsList items={data as NewsItems[]}/> */}
-      <Footer/>
+      {/* <NewsList2 items={data as NewsItems[]} /> */}
+      <div style={{ width: '100%' }}>
+        <Footer />
+      </div>
     </div>
   )
 }
