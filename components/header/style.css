@@ -1,3 +1,7 @@
 .header-body {
     padding-left: 5%;
 }
+
+header{
+    width: 100vw;
+}

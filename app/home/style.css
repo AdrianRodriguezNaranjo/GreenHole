@@ -12,13 +12,14 @@ html{
 }
 
 body {
-  overflow: hidden;
+  /* overflow: hidden; */
   min-height: 100% 
 }
 
 .embla {
+  display: flexbox;
   height: 68vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .embla__container {
@@ -40,14 +41,14 @@ body {
   min-width: 15%;
   margin-right: 5%;
   width: 80%;
-  height: 95%;
+  /* height: 95%; */
   text-align: center;
 }
 
 .embla__slide>img {
   margin-left: 6px;
   border-radius: 10%;
-  height: 90%;
+  height: 100%;
 }
 
 

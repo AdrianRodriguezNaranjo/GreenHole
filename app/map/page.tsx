@@ -41,7 +41,7 @@ export default async function Page() {
       <Header />
         {user && (
           <>
-            <Button className="bg-teal-800" href="/formMap" style={{borderColor:'black',color:'white', position:'fixed', zIndex:'1', marginTop:'80%', marginLeft:'70%'}}>Add location</Button>
+            <Button className="bg-teal-800" href="/formMap" style={{borderColor:'black',color:'white', position:'fixed', zIndex:'1', marginTop:'9%', marginLeft:'70%'}}>Add location</Button>
           </>
         )}
       <div className="bg-white-700 mx-auto my-5 w-100 h-[480px] relative z-10" style={{width:'100%', zIndex:'0'}}>
