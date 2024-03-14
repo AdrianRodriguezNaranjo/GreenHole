@@ -39,13 +39,13 @@ export default async function Page() {
   return (
     <div>
       <Header />
-      <div className=" mx-auto my-1 relative ">
-        <Map markers={markers} directions={directions} materials={materials} />
         {user && (
           <>
-            <Button className="bg-blue-500" href="/formMap">Add location</Button>
+            <Button className="bg-teal-800" href="/formMap" style={{borderColor:'black',color:'white', position:'fixed', zIndex:'1', marginTop:'180%', marginLeft:'70%'}}>Add location</Button>
           </>
         )}
+      <div className="bg-white-700 mx-auto my-5 w-100 h-[480px] relative z-10" style={{width:'100%', zIndex:'0'}}>
+        <Map markers={markers} directions={directions} materials={materials}/>
       </div>
     </div>
   )

@@ -1,11 +1,7 @@
-.map-container {
-    height: 80vh; 
-    width: 90vh; 
-  }
-  
-  @media (max-width: 768px) {
-    .map-container {
-      height: 50vh; 
-      width: 90vw; 
-    }
-  }
+.__className_45434c > Map{
+    width: 100%;
+}
+
+.elemet-style{
+    width: 100%;
+}
