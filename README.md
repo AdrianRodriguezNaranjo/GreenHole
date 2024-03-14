@@ -1,5 +1,5 @@
 <img alt="Our project" src=" ">
-  <h1 align="center">Sustainable Island 2023</h1>
+  <h1 align="center">Sustainable Island</h1>
 </a>
 
 <p align="center">
