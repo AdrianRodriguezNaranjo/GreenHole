@@ -17,15 +17,15 @@ export default function Page() {
   };
 
   return (
-    <div className="h-screen">
+    <div className="flex flex-col h-screen">
       <Header />
       <MaterialMenu onMaterialSelect={handleMaterialSelect} />
-      <div className="bg-white p-6 rounded-lg">
+      <div className="bg-white p-6 rounded-lg flex-grow">
         <h1 className="font-bold text-black mb-4">{selectedMaterial.title}</h1>
         <p className="text-gray-700 mb-4">{selectedMaterial.text1}</p>
         <p className="text-gray-700 mb-4">{selectedMaterial.text2}</p>
         <div className="grid grid-cols-3 gap-4 gap-x-10">
-        {Array.from({ length: selectedMaterial.image }, (_, index) => (
+          {Array.from({ length: selectedMaterial.image }, (_, index) => (
             <img
               key={index}
               src={`/icons/material/${selectedMaterial.title.toLowerCase().replace(/\s+/g, '')}${index + 1}.svg`}
@@ -35,7 +35,7 @@ export default function Page() {
           ))}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }
