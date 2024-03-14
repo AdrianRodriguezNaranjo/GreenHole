@@ -7,7 +7,7 @@ import { getAll } from '@/server/location/Location';
 import Header from "@/components/Header";
 import { createClient } from '@/utils/supabase/server';
 import { Button } from 'antd';
-import Footer from "@/components/footer";
+import './style.css';
 
 const Map = dynamic(() => import("@/components/map/"), {
   loading: () => <p>A map is loading</p>,
@@ -39,13 +39,13 @@ export default async function Page() {
   return (
     <div>
       <Header />
-      <div className="bg-white-700 mx-auto my-5 w-auto h-[480px] relative z-10">
-        <Map markers={markers} directions={directions} materials={materials} />
         {user && (
           <>
-            <Button className="bg-blue-500" href="/formMap">Add location</Button>
+            <Button className="bg-teal-800" href="/formMap" style={{borderColor:'black',color:'white', position:'fixed', zIndex:'1', marginTop:'180%', marginLeft:'70%'}}>Add location</Button>
           </>
         )}
+      <div className="bg-white-700 mx-auto my-5 w-100 h-[480px] relative z-10" style={{width:'100%', zIndex:'0'}}>
+        <Map markers={markers} directions={directions} materials={materials}/>
       </div>
     </div>
   )

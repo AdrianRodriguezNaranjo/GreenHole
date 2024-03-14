@@ -27,8 +27,8 @@ export default function NewsList({ items }: { items: NewsItems[] }) {
     <div className="max-w-md mx-auto">
       <div className="flex items-center justify-between p-4 border-b-2 border-gray-400">
         <img src="/icons/logo.png" alt="Logo" className="h-10 w-10" />
-        <input
-          className="flex-1 mx-4 outline-none bg-white border border-gray-200 rounded-full p-2"
+        <input style={{width:'100%'}}
+          className="flex mx-4 outline-none bg-white border border-gray-200 rounded-full p-2"
           type="search"
           placeholder="Search"
           onChange={(e) => {

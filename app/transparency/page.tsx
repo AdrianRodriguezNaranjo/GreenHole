@@ -22,7 +22,9 @@ export default function Transparency() {
   return (
     <>
       <div className="transparency-body">
+        <div style={{width:'100%'}}>
         <Header/>
+        </div>
         <div className='transparency-content'>
           <h1 className='Tittle'>Transparency of recycling facilities</h1>
           <div className='GreenPoint1'>
