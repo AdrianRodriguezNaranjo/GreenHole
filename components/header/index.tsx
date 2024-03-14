@@ -17,7 +17,8 @@ const Header: NextPage = () => {
       <div className="flex items-center space-x-4">
         <img src="/icons/logo.png" alt="Logo" className="h-10 w-10" />
         <SearchBar placeholder="Search" className="w-[30vh]" />
-        <Menu/>
+        {/* <Menu/> */}
+
       </div>
     </header>
   );

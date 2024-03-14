@@ -10,8 +10,8 @@ const Footer: NextPage = () => {
         <div>
             <div className='footer-body' style={{ color: 'white' }}>
                 <div className='footer-options'>
-                    <a>Admin login</a>
-                    <a href='https://github.com/AdrianRodriguezNaranjo/GreenHole/tree/develop' target='_blank'>About Us</a>
+                    <a href='/login'>Admin login</a>
+                    <a href='/about-us'>About Us</a>
                     <a href='https://sdgs.un.org/es/goals' target='_blank'>UN goals</a>
                 </div>
                 <div style={{ backgroundColor: '#658E9C' }} className='footer-spacing'></div>
