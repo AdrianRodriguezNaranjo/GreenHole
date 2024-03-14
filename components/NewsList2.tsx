@@ -4,7 +4,6 @@ import { NewsItems } from '@/utils/items';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
-import Menu from './menu/menu';
 
 const icons = {
   bbc: "https://i.ibb.co/kGbsBK2/image.png",
@@ -13,32 +12,12 @@ const icons = {
   tomra: "https://i.ibb.co/DYBQM6r/image.png",
 };
 
-export default function NewsList({ items }: { items: NewsItems[] }) {
+export default function NewsList2({ items }: { items: NewsItems[] }) {
   const router = useRouter();
   const [newsItems, setNewsItems] = React.useState<NewsItems[]>(items);
 
   return (
     <div className="max-w-md mx-auto flex flex-col justify-between" style={{height:"100%"}}>
-      <div className="flex items-center justify-between p-4 border-b-2 border-gray-400">
-        <img src="/icons/logo.png" alt="Logo" className="h-10 w-10" />
-        <input style={{width:'100%'}}
-          className="flex mx-4 outline-none bg-white border border-gray-200 rounded-full p-2"
-          type="search"
-          placeholder="Search"
-          onChange={(e) => {
-
-            const regex = new RegExp(e.target.value, "i");
-
-            const searchedItems = items.filter((item) => {
-              return regex.test(item.title);
-            });
-
-            setNewsItems(searchedItems);
-          }}
-        />
-        <Menu isLoggedIn={false} />
-      </div>
-
       <main className="container mx-auto">
         <h1 className="px-4 text-2xl font-bold text-[#484848]">News</h1>
         <div className="space-y-6 p-4">

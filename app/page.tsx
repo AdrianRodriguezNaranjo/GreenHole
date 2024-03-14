@@ -1,30 +1,25 @@
-import DeployButton from "../components/DeployButton";
-import AuthButton from "../components/AuthButton";
 import { createClient } from "@/utils/supabase/server";
-import ConnectSupabaseSteps from "@/components/tutorial/ConnectSupabaseSteps";
-import SignUpUserSteps from "@/components/tutorial/SignUpUserSteps";
+import { NewsItems } from "@/utils/items";
 import Home from "./home/page";
 import Header from "@/components/Header";
+import Footer from "@/components/footer";
+import './style.css';
+import NewsList2 from "@/components/NewsList2";
 
 export default async function Index() {
-  const canInitSupabaseClient = () => {
-    // This function is just for the interactive tutorial.
-    // Feel free to remove it once you have Supabase connected.
-    try {
-      createClient();
-      return true;
-    } catch (e) {
-      return false;
-    }
-  };
-
-  const isSupabaseConnected = canInitSupabaseClient();
+  const supabase = await createClient();
+  const { data } = await supabase.from('news').select()
 
   return (
-
-    <>
-      <Header/>
-      <Home/>
- </>
+    <div className="home" >
+      <div style={{ width: '100%' }}>
+        <Header />
+      </div>
+      <Home />
+      {/* <NewsList2 items={data as NewsItems[]} /> */}
+      <div style={{ width: '100%' }}>
+        <Footer />
+      </div>
+    </div>
   )
 }

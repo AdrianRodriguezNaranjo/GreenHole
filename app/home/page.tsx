@@ -13,11 +13,10 @@ export default function Home() {
   );
 
   useEffect(() => {
-    console.log('Reference:', emblaRef);
+    // console.log('Reference:', emblaRef);
   }, [emblaRef]);
 
   return (
-    <>
     <div className="embla">
       <div className="embla__container" ref={emblaRef}>
         <div className="embla__container__inner">
@@ -29,7 +28,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-    </div>          
-    </>
+    </div>
   );
 }

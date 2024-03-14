@@ -69,7 +69,7 @@ const Map: React.FC<MapProps> = ({ markers, directions, materials, zoom = defaul
       center={location ? [location.latitude, location.longitude] : [28.0102963,-15.5370595]}
       zoom={zoom}
       scrollWheelZoom={true}
-      style={{ height: "80vh", width: "90vh" }}
+      style={{ height: "156.2%", width: "100%" }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

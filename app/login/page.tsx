@@ -2,7 +2,6 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-
 import { SubmitButton } from "../../components/submit-button";
 
 export default async function Login({ searchParams,}: { searchParams: { message: string }; }) {
@@ -75,9 +74,8 @@ export default async function Login({ searchParams,}: { searchParams: { message:
 
   return (
     <div className="h-screen flex-col flex items-center justify-center gap-8">
-      <div className="flex flex-col justify-center items-center">
-  
-        <img src="../icons/Greenhole.png" alt="logo" className="size-28"/>
+      <div className="flex flex-col justify-center items-center">  
+        <img src="/icons/greenhole.png" alt="logo" className="size-28"/>
         <h1 className="text-teal-800 text-4xl font-medium "> GreenHole </h1>
       </div>
       <form className="flex justify-center flex-col items-center gap-6">

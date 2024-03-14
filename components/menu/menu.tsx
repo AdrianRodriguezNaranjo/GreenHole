@@ -1,9 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { MenuOutlined } from "@ant-design/icons";
 import { motion } from "framer-motion";
+import { signOut } from "@/server/actions";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
-const Menu: React.FC = () => {
+export default function Menu({ isLoggedIn }: { isLoggedIn: boolean }) {
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  console.log(isLoggedIn);
 
   const handleMenuClick = () => {
     setMenuOpen(!menuOpen);
@@ -11,7 +17,7 @@ const Menu: React.FC = () => {
 
   const closeMenu = () => {
     setMenuOpen(false);
-  };    
+  };
 
   return (
     <div className="relative">
@@ -97,11 +103,50 @@ const Menu: React.FC = () => {
                 News
               </a>
             </li>
+            {isLoggedIn ? (
+              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                <a
+                  onClick={async () => {
+                    const signOutResponse = await signOut();
+
+                    if (signOutResponse) {
+                      toast.success("You have been signed out");
+                      router.refresh()
+                      router.push("/");
+                      return;
+                    } else {
+                      toast.error("There was an error signing out");
+                    }
+                  }}
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    textDecoration: "none",
+                    color: "#658E9C",
+                  }}
+                >
+                  Log out
+                </a>
+              </li>
+            ) : (
+              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                <a
+                  href="/login"
+                  onClick={closeMenu}
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    textDecoration: "none",
+                    color: "#658E9C",
+                  }}
+                >
+                  Admin login
+                </a>
+              </li>
+            )}
           </ul>
         </motion.div>
       )}
     </div>
   );
-};
-
-export default Menu;
+}
