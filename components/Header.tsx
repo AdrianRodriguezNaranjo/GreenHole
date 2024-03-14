@@ -14,14 +14,19 @@ export default function Header() {
 
   React.useEffect(() => {
     async function check() {
-      const supabase = createClient();
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
+      try {
+        const supabase = createClient();
+        const {
+          data: { user },
+        } = await supabase.auth.getUser();
 
-      if (user) {
-        setIsLoggedIn(true);
-        console.log("User is logged in");
+        if (user) {
+          setIsLoggedIn(true);
+          console.log("User is logged in");
+        }
+      } catch (error) {
+        setIsLoggedIn(false);
+        console.log("User isnot logged in");
       }
     }
 
@@ -37,7 +42,6 @@ export default function Header() {
           className="h-10 w-10 header-img"
           onClick={() => router.push("/")}
         />
-
         <Menu isLoggedIn={isLoggedIn} />
       </div>
     </header>
