@@ -15,7 +15,9 @@ export default async function Index() {
       <div style={{ width: '100%' }}>
         <Header />
       </div>
-      {/* <Home /> */}
+      <div className="h-auto">
+      <Home />
+      </div>
       <NewsList2 items={data as NewsItems[]} />
       <div style={{ width: '100%' }}>
         <Footer />
