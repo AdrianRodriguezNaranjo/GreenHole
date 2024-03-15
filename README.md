@@ -1,6 +1,6 @@
-<div style:{{borderRadius: '10px'}}>
+
 ![Team](public/images/team.jpg)
-</div>
+
   <h1 align="center">Sustainable Island Gran Canaria 2024</h1>
 
 <p align="center">
