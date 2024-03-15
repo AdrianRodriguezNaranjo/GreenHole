@@ -12,16 +12,16 @@ export default async function Index() {
 
   return (
     <div className="home" >
-      <div style={{ width: '100%' }}>
-        <Header />
-      </div>
-      <div className="h-auto">
+      {/* <div style={{ width: '100%' }}> */}
+      <Header />
+      {/* </div> */}
+      {/* <div className="h-auto"> */}
       <Home />
-      </div>
-      <NewsList2 items={data as NewsItems[]} />
-      <div style={{ width: '100%' }}>
-        <Footer />
-      </div>
+      {/* </div> */}
+      {/* <NewsList2 items={data as NewsItems[]} /> */}
+      {/* <div style={{ width: '100%' }}> */}
+      <Footer />
+      {/* </div> */}
     </div>
   )
 }

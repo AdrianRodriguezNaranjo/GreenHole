@@ -34,7 +34,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="p-4 flex items-center justify-between border-b-2 border-gray-400">
+    <header className="pt-4 pb-4 flex items-center justify-between border-b-2 border-gray-400">
       <div className="flex items-center space-x-64 header-body">
         <img
           src="/icons/logo.png"
