@@ -1,9 +1,6 @@
-<img alt="Our project" src="
-  ">
- 
+![Team](public/images/team.jpg)
 
   <h1 align="center">Sustainable Island Gran Canaria 2024</h1>
-</a>
 
 <p align="center">
  GreenHole by KALM
