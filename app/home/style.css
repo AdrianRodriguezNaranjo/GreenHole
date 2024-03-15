@@ -19,6 +19,7 @@ body {
 .embla {
   display: flexbox;
   height: 68vh;
+  position: relative;
   /* overflow: hidden; */
 }
 
